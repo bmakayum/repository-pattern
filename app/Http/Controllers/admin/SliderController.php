@@ -6,6 +6,7 @@ use App\Traits\ResponseTrait;
 use App\Repositories\SliderRepository;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\admin\StoreSliderRequest;
 
 
 class SliderController extends Controller
@@ -46,7 +47,7 @@ class SliderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreSliderRequest $request)
     {
         try{
             return $this->responseSuccess($this->sliderRepository->createData($request), 'Data insert successfully');
@@ -88,7 +89,7 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreSliderRequest $request, $id)
     {
         try{
             return $this->responseSuccess($this->sliderRepository->updateById($request, $id), 'Data update successfully');
