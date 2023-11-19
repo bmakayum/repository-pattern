@@ -48,7 +48,11 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            return $this->responseSuccess($this->sliderRepository->createData($request), 'Data insert successfully');
+        }catch(Exception $e){
+            return $this->responseError([], $e->getMessage());
+        }
     }
 
     /**
@@ -86,7 +90,11 @@ class SliderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try{
+            return $this->responseSuccess($this->sliderRepository->updateById($request, $id), 'Data update successfully');
+        }catch(Exception $e){
+            return $this->responseError([], $e->getMessage());
+        }
     }
 
     /**
@@ -97,6 +105,10 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try{
+            return $this->responseSuccess($this->sliderRepository->deleteById($id), 'Data delete successfully');
+        }catch(Exception $e){
+            return $this->responseError([], $e->getMessage());
+        }
     }
 }

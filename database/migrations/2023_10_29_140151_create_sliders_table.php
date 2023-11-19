@@ -19,7 +19,21 @@ class CreateSlidersTable extends Migration
             $table->collation = 'latin1_swedish_ci';
             
             $table->id();
-            $table->timestamps();
+            $table->string('title')->nullable();
+            $table->tinyInteger('show_title')->unsigned()->default(1);
+            $table->string('subtitle')->nullable();
+            $table->text('details')->nullable();
+            $table->string('link')->nullable();
+            $table->string('type')->default('image');
+            $table->string('image')->nullable();
+            $table->string('poster')->nullable();
+            $table->string('mp4video')->nullable();
+            $table->string('webmvideo')->nullable();
+            $table->string('ogvvideo')->nullable();
+            $table->integer('serial');
+            $table->tinyInteger('status')->unsigned()->default(1);
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->nullable()->useCurrentOnUpdate();
         });
     }
 
