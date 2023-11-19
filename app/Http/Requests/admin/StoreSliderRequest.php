@@ -25,6 +25,7 @@ class StoreSliderRequest extends FormRequest
     {
         return [
             'serial' => 'required',
+            
         ];
     }
 }
