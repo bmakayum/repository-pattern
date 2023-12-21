@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\SliderController;
+use App\Http\Controllers\admin\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +16,15 @@ use App\Http\Controllers\admin\SliderController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
-Route::get('/demo', function(){
-    return "Hello";
-});
+// Route::get('/demo', function(){
+//     return "Hello";
+// });
 
-Route::resource('/admin/sliders', SliderController::class);
+Route::resource('/admin/slider', SliderController::class);
+
+// Route::resource('/admin/category', CategoryController::class);
+// Route::post('/admin/slider', [SliderController::class, 'store']);

@@ -13,8 +13,21 @@ class StoreSliderRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
+
+    /**
+     * Prepare the data for validation.
+     *
+     * @return void
+     */
+    // protected function prepareForValidation()
+    // {
+    //     $this->merge([
+    //         //'title' => $this->title ?? null,
+    //         'serial' => $this->serial ?? null,
+    //     ]);
+    // }
 
     /**
      * Get the validation rules that apply to the request.
@@ -23,9 +36,18 @@ class StoreSliderRequest extends FormRequest
      */
     public function rules()
     {
+        //dd($this->all());
         return [
-            'serial' => 'required',
-            
+            'title' => 'required',
+            'serial' => 'integer|required',
+            'video' => 'mimes:mp4,pdf|max:10240'
         ];
     }
+
+    // public function messages(){
+    //     return [
+    //         'title.required' => 'Title field must be required',
+    //         'serial.required' => 'Serial field must be required',
+    //     ];
+    // }
 }
